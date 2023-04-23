@@ -660,7 +660,7 @@ class _DragProxyState extends State<_DragProxy> {
 
   void setWidget(Widget widget, RenderBox position) {
     setState(() {
-      _decorationOpacity = 1.0;
+      _decorationOpacity = 0.0;
       _widget = widget;
       final state = _ReorderableListState.of(context)!;
       RenderBox renderBox = state.context.findRenderObject() as RenderBox;
@@ -791,54 +791,54 @@ class _Recognizer extends MultiDragGestureRecognizer {
 
 DecoratedPlaceholder _defaultDecoratePlaceholder(
     Widget widget, double decorationOpacity) {
-  final double decorationHeight = 10.0;
+  final double decorationHeight = 0.0;
 
   final decoratedWidget = Builder(builder: (BuildContext context) {
-    final mq = MediaQuery.of(context);
+    //final mq = MediaQuery.of(context);
     return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Opacity(
-              opacity: decorationOpacity,
-              child: Container(
-                height: decorationHeight,
-                decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                          color: Color(0x50000000),
-                          width: 1.0 / mq.devicePixelRatio)),
-                  gradient: LinearGradient(
-                    begin: Alignment(0.0, -1.0),
-                    end: Alignment(0.0, 1.0),
-                    colors: <Color>[
-                      Color(0x00000000),
-                      Color(0x10000000),
-                      Color(0x30000000)
-                    ],
-                  ),
-                ),
-              )),
+          // Opacity(
+          //     opacity: decorationOpacity,
+          //     child: Container(
+          //       height: decorationHeight,
+          //       decoration: BoxDecoration(
+          //         border: Border(
+          //             bottom: BorderSide(
+          //                 color: Color(0x50000000),
+          //                 width: 1.0 / mq.devicePixelRatio)),
+          //         gradient: LinearGradient(
+          //           begin: Alignment(0.0, -1.0),
+          //           end: Alignment(0.0, 1.0),
+          //           colors: <Color>[
+          //             Color(0x00000000),
+          //             Color(0x10000000),
+          //             Color(0x30000000)
+          //           ],
+          //         ),
+          //       ),
+          //     )),
           widget,
-          Opacity(
-              opacity: decorationOpacity,
-              child: Container(
-                height: decorationHeight,
-                decoration: BoxDecoration(
-                  border: Border(
-                      top: BorderSide(
-                          color: Color(0x50000000),
-                          width: 1.0 / mq.devicePixelRatio)),
-                  gradient: LinearGradient(
-                    begin: Alignment(0.0, -1.0),
-                    end: Alignment(0.0, 1.0),
-                    colors: <Color>[
-                      Color(0x30000000),
-                      Color(0x10000000),
-                      Color(0x00000000)
-                    ],
-                  ),
-                ),
-              )),
+          // Opacity(
+          //     opacity: decorationOpacity,
+          //     child: Container(
+          //       height: decorationHeight,
+          //       decoration: BoxDecoration(
+          //         border: Border(
+          //             top: BorderSide(
+          //                 color: Color(0x50000000),
+          //                 width: 1.0 / mq.devicePixelRatio)),
+          //         gradient: LinearGradient(
+          //           begin: Alignment(0.0, -1.0),
+          //           end: Alignment(0.0, 1.0),
+          //           colors: <Color>[
+          //             Color(0x30000000),
+          //             Color(0x10000000),
+          //             Color(0x00000000)
+          //           ],
+          //         ),
+          //       ),
+          //     )),
         ]);
   });
   return DecoratedPlaceholder(
